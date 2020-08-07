@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.gouwuproject"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        sourceSets {
+            main.jniLibs.srcDirs = ['libs']
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+//配置签名文件
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword '111111'
+            storeFile file('tete.jks')
+            storePassword '111111'
+        }
+
+        debug {
+            keyAlias 'key0'
+            keyPassword '111111'
+            storeFile file('tete.jks')
+            storePassword '111111'
+        }
+
+        release {
+            keyAlias 'key0'
+            keyPassword '111111'
+            storeFile file('tete.jks')
+            storePassword '111111'
+        }
+
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+//ButterKnife
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+//    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+//   implementation 'com.tencent.bugly:nativecrashreport:latest.release'/
+    implementation project(':httplibrary')
+    implementation project(':mvplibrary')
+    //LeakCanary内存泄漏检测库
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+
+// 下面各SDK根据宿主App是否使用相关业务按需引入。
+// OAID目前为目前国内市场主流的Android Q设备标识，可根据需要选择。
+// 友盟统计SDK
+    implementation 'com.umeng.umsdk:common:9.1.0' // (必选)
+    implementation 'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+    //BottomNavogationBar
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.3'
+    //轮播图
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //自动刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'  //1.0.5及以前版本的老用户升级需谨慎，API改动过大
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'
+
+//RecyclerView依赖
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+}

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".fragment.HomeFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#03A9F4"
+        >
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sousuo"
+            android:id="@+id/iv_sousuo_home"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="33dp"
+            android:id="@+id/saoyisao_home"
+            android:src="@drawable/icon_scan"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/iv_sousuo_home"
+            />
+
+
+    </RelativeLayout>
+
+    <com.youth.banner.Banner
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/bann"
+        />
+
+    <LinearLayout
+        android:layout_width="430dp"
+        android:layout_gravity="center"
+        android:layout_height="27dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/select_gonggao_home"
+        >
+        
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gonggao"
+            android:layout_marginLeft="5dp"
+            />
+        
+        <View
+            android:id="@+id/viewFen"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray" />
+
+
+        <ViewFlipper
+            android:id="@+id/filpper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoStart="true"
+            android:flipInterval="3000"
+            android:layout_gravity="center"
+            android:inAnimation="@anim/news_in"
+            android:outAnimation="@anim/news_out" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_tejia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="特价"
+            android:background="#DF1C0D"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_tejia"
+            android:text="火爆进行中"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="6dp"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rcy_home"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/select_linear_hualang"
+        android:clipChildren="false"
+        android:layerType="software"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/ll_vp_home"
+        >
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/vp_home"
+            android:clipChildren="false"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="爱生活"
+            android:layout_marginRight="27dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有品有范有时尚"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

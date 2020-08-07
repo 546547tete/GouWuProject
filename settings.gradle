@@ -1,0 +1,4 @@
+rootProject.name='GouWuProject'
+include ':app'
+include ':httplibrary'
+include ':mvplibrary'
